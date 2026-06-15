@@ -2,36 +2,27 @@ package com.infraoptix.infraoptix.application.service;
 
 import org.springframework.stereotype.Service;
 
-import com.infraoptix.infraoptix.application.port.in.command.CreateCloudResourceCommand;
 import com.infraoptix.infraoptix.application.port.in.result.CloudResourceResult;
+import com.infraoptix.infraoptix.application.port.in.usecase.GetCloudResourceUsecase;
 import com.infraoptix.infraoptix.application.port.out.CloudResourceRepositoryPort;
-import com.infraoptix.infraoptix.application.port.in.usecase.CreateCloudResourceUseCase;
 import com.infraoptix.infraoptix.domain.model.aggregate.CloudResource;
 
 @Service
-public class CreateCloudResourceService
-        implements CreateCloudResourceUseCase {
+public class GetCloudResourceService
+        implements GetCloudResourceUsecase {
 
     private final CloudResourceRepositoryPort repository;
 
-    public CreateCloudResourceService(
+    public GetCloudResourceService(
             CloudResourceRepositoryPort repository) {
         this.repository = repository;
     }
 
     @Override
-    public CloudResourceResult execute(
-            CreateCloudResourceCommand command) {
+    public CloudResourceResult execute(Long id) {
 
         CloudResource cloudResource =
-                CloudResource.create(
-                        command.resourceId(),
-                        command.resourceName(),
-                        command.resourceType(),
-                        command.monthlyCost()
-                );
-
-        cloudResource = repository.save(cloudResource);
+                repository.findById(id);
 
         return new CloudResourceResult(
                 cloudResource.getResourceId(),
@@ -42,4 +33,3 @@ public class CreateCloudResourceService
         );
     }
 }
-

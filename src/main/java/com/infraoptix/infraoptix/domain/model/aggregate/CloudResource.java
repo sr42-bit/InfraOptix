@@ -1,8 +1,9 @@
 package com.infraoptix.infraoptix.domain.model.aggregate;
 
+import java.math.BigDecimal;
+
 import com.infraoptix.infraoptix.domain.model.enums.ResourceStatus;
 import com.infraoptix.infraoptix.domain.model.enums.ResourceType;
-import java.math.BigDecimal;
 
 public class CloudResource {
 
@@ -46,6 +47,26 @@ public class CloudResource {
                 resourceName,
                 resourceType,
                 ResourceStatus.ACTIVE,
+                monthlyCost
+        );
+    }
+    
+    // Factory method to reconstruct a CloudResource from persistence
+
+    public static CloudResource reconstruct(
+            Long id,
+            String resourceId,
+            String resourceName,
+            ResourceType resourceType,
+            ResourceStatus status,
+            BigDecimal monthlyCost) {
+
+        return new CloudResource(
+                id,
+                resourceId,
+                resourceName,
+                resourceType,
+                status,
                 monthlyCost
         );
     }

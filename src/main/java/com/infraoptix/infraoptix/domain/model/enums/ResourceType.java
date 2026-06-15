@@ -4,5 +4,4 @@ public enum ResourceType {
     EC2,
     S3,
     RDS,
-    ResourceType
 }
