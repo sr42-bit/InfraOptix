@@ -79,6 +79,7 @@ public class CloudResource {
         this.status = ResourceStatus.ACTIVE;
     }
 
+    // Getters for the fields
     public ResourceStatus getStatus() {
         return status;
     }
