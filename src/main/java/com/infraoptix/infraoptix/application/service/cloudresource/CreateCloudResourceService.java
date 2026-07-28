@@ -1,27 +1,26 @@
-package com.infraoptix.infraoptix.application.service;
+package com.infraoptix.infraoptix.application.service.cloudresource;
 
 import org.springframework.stereotype.Service;
 
-import com.infraoptix.infraoptix.application.port.in.command.CreateCloudResourceCommand;
-import com.infraoptix.infraoptix.application.port.in.result.CloudResourceResult;
+import com.infraoptix.infraoptix.application.port.in.command.cloudresource.CreateCloudResourceCommand;
+import com.infraoptix.infraoptix.application.port.in.result.cloudresource.CloudResourceResult;
+import com.infraoptix.infraoptix.application.port.in.usecase.cloudresource.CreateCloudResourceUseCase;
 import com.infraoptix.infraoptix.application.port.out.CloudResourceRepositoryPort;
-import com.infraoptix.infraoptix.application.port.in.usecase.CreateCloudResourceUseCase;
 import com.infraoptix.infraoptix.domain.model.aggregate.CloudResource;
 
 @Service
+
 public class CreateCloudResourceService
         implements CreateCloudResourceUseCase {
 
     private final CloudResourceRepositoryPort repository;
 
-    public CreateCloudResourceService(
-            CloudResourceRepositoryPort repository) {
+    public CreateCloudResourceService(CloudResourceRepositoryPort repository) {
         this.repository = repository;
     }
 
     @Override
-    public CloudResourceResult execute(
-            CreateCloudResourceCommand command) {
+    public CloudResourceResult execute(CreateCloudResourceCommand command) {
 
         CloudResource cloudResource =
                 CloudResource.create(

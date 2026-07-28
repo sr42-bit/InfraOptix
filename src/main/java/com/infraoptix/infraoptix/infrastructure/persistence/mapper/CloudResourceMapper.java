@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 
 import com.infraoptix.infraoptix.domain.model.aggregate.CloudResource;
 import com.infraoptix.infraoptix.infrastructure.persistence.jpa.entity.CloudResourceEntity;
-
 @Component
-public class CloudResourceMapper {
 
+public class CloudResourceMapper {
+    
     public CloudResourceEntity toEntity(
             CloudResource cloudResource) {
 

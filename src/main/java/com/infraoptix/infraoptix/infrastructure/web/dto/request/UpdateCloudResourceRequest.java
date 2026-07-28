@@ -6,10 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-public record CreateCloudResourceRequest(
-
-        @NotBlank(message = "Resource ID is required")
-        String resourceId,
+public record UpdateCloudResourceRequest(
 
         @NotBlank(message = "Resource Name is required")
         String resourceName,

@@ -1,4 +1,4 @@
-package com.infraoptix.infraoptix.application.port.in.result;
+package com.infraoptix.infraoptix.application.port.in.result.cloudresource;
 
 import java.math.BigDecimal;
 
